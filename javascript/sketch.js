@@ -2,6 +2,7 @@ let part, part2;
 let isPressed = false;
 let is2Pressed = false;
 let val;
+let toneStarted = false;
 
 let synth, synth2;
 let playing, note;
@@ -90,6 +91,10 @@ function addGUI() {
   }
 
   function bPress() {
+    if (!toneStarted) {
+      Tone.start();
+      toneStarted = true;
+    }
     console.log('button pressed')
     if (isPressed) {
       isPressed = false;
@@ -104,6 +109,10 @@ function addGUI() {
   }
 
   function bPress2() {
+    if (!toneStarted) {
+      Tone.start();
+      toneStarted = true;
+    }
     console.log('button 2 pressed')
     if (is2Pressed) {
       is2Pressed = false;
